@@ -44,6 +44,11 @@ class Login(Resource):
         else:
             return jsonify({'message': 'Invalid credentials'}), 401
 
+class Logout(Resource):
+    def post(self):
+        session.pop('user_id', None)
+        return jsonify({'message': 'Logged out successfully'}), 200
+    
 
 
 
